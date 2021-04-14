@@ -174,7 +174,7 @@ for (let i = 0; i < Nbrs.length; i++) {
     }
 
     //calcule du salaire
-    let jean= new ('Jean', 5000, false, false, 'H', 2);
-
+    let jean= new SalairBrut('Jean', 5000, 'false', 'false', 'H', 2);
+    console.log(jean.salaireNet());
     
 })();
