@@ -119,43 +119,39 @@ for (let i = 0; i < Nbrs.length; i++) {
         
 
         this.CalclImpot= function() {
-            let resImp;
-            if (this.genre === 'Homme'){
+            let resImp = 18;
+            if (this.genre === 'H'){
 
            
                 if (this.persCharge >= 3){
-                    if (this.persCharge == 3){
-                        resImp= this.salaire * 0.17;
+                    if (this.persCharge === 3){
+                        resImp -= 1;
                     }else{
-                        resImp= this.salaire * 0.16;
+                        resImp -= 2 ;
                     }
-                }else{
-                resImp=this.salaire * 0.18;
                 }
             }else{
+                resImp -= 2;
                 if (this.persCharge >= 3){
-                    if (this.persCharge == 3){
-                        resImp= this.salaire * 0.15;
+                    if (this.persCharge === 3){
+                        resImp -= 1;
                     }else{
-                        resImp= this.salaire * 0.14;
+                        resImp -= 2;
                     }
-                }else{
-                resImp=this.salaire * 0.16;
                 }
             }
-
-            return resImp;
+            return this.salaire *(resImp/100);
         }
 
         this.CalclAssu= function() {
             let resAssu;
             resAssu= this.salaire * 0.07 ;
-            return resAssu
+            return resAssu;
         }
         this.CalclPension= function() {
             let resPens;
             resPens= this.salaire * 0.05;
-            return resPens
+            return resPens;
         }
 
         this.Bonus= function(){
@@ -173,12 +169,12 @@ for (let i = 0; i < Nbrs.length; i++) {
             }
         }
         this.salaireNet= function(){
-            return this.salaire - (this.CalclImpot()+ this.CalclAssu() + this.CalclPension()) + this.Bonus() + this.allocation();
+            return this.salaire - (this.CalclImpot()+ this.CalclAssu() + this.CalclPension()) + this.Bonus() + this.Allocation();
         }
     }
 
     //calcule du salaire
-
+    let jean= new ('Jean', 5000, false, false, 'H', 2);
 
     
 })();
