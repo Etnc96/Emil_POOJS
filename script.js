@@ -100,8 +100,85 @@ function add_nom(){
 */
 
 //Jour 2
-
+/*
 var Nbrs = [1,3,5,7,9]
 for (let i = 0; i < Nbrs.length; i++) { 
     console.log(Nbrs[i]);
   } 
+*/
+
+(function(){
+    function SalairBrut(name, salaire, bonus, allocation, genre, persCharge){
+        this.name= name;
+        this.salaire = salaire;
+        this.bonus = bonus;
+        this.allocation = allocation;
+        this.genre = genre;
+        this.persCharge = persCharge;
+
+        
+
+        this.CalclImpot= function() {
+            let resImp;
+            if (this.genre === 'Homme'){
+
+           
+                if (this.persCharge >= 3){
+                    if (this.persCharge == 3){
+                        resImp= this.salaire * 0.17;
+                    }else{
+                        resImp= this.salaire * 0.16;
+                    }
+                }else{
+                resImp=this.salaire * 0.18;
+                }
+            }else{
+                if (this.persCharge >= 3){
+                    if (this.persCharge == 3){
+                        resImp= this.salaire * 0.15;
+                    }else{
+                        resImp= this.salaire * 0.14;
+                    }
+                }else{
+                resImp=this.salaire * 0.16;
+                }
+            }
+
+            return resImp;
+        }
+
+        this.CalclAssu= function() {
+            let resAssu;
+            resAssu= this.salaire * 0.07 ;
+            return resAssu
+        }
+        this.CalclPension= function() {
+            let resPens;
+            resPens= this.salaire * 0.05;
+            return resPens
+        }
+
+        this.Bonus= function(){
+            if (this.bonus == true){ 
+                return 100;
+            }else{ 
+                return 0
+            }
+        }
+        this.Allocation= function(){
+            if (this.allocation == true){ 
+                return 150;
+            }else{ 
+                return 0
+            }
+        }
+        this.salaireNet= function(){
+            return this.salaire - (this.CalclImpot()+ this.CalclAssu() + this.CalclPension()) + this.Bonus() + this.allocation();
+        }
+    }
+
+    //calcule du salaire
+
+
+    
+})();
