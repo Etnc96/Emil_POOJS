@@ -45,7 +45,7 @@
 
 })();
 */
-
+/*
 (function(){
   function Documents(numEnreg, titre){
     this.numEnreg = numEnreg;
@@ -99,4 +99,115 @@
  
   display(marius.nbPages);
   
+})();
+*/
+
+/*
+//jour 2
+
+(function(){
+class Person{
+  constructor(firstName, lastName, age){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+  isAdult(){
+      return this.age >18;
+  }
+}
+
+class Student extends Person{
+  constructor(firstName, lastName, age, level){
+    super(firstName, lastName, age);
+    this.level = level;
+  }
+}
+
+class Maxim extends Student{
+  constructor(firstName, lastName, age, level, test){
+    super(firstName, lastName, age, level);
+    this.test = test;
+  }
+}
+//var person1 = new Person('Jim', 'COOPER', 29);
+//display(person1.isAdult());
+
+var stu1 = new Student('Jim', 'COOPER',29, 7);
+display(stu1);
+display(stu1.isAdult())
+})();
+*/
+/*
+(function(){
+  class Documents{
+    constructor(numEnreg, titre){
+    this.numEnreg = numEnreg;
+    this.titre = titre;
+    }  
+    AfficherTitre(){
+      return this.titre;
+    }
+  }
+
+  class Livre extends Documents{
+    constructor(numEnreg, titre, auteur, page){
+    super(numEnreg, titre);
+    this.auteur = auteur;
+    this.page = page;
+    }
+    AfficherNbrePages(){
+      return this.page;
+    }
+  }
+
+  class Revu extends Documents{
+    constructor(numEnreg, titre, mois, annee){
+    super(numEnreg, titre);
+    this.mois = mois;
+    this.annee = annee;
+    }
+    AfficherDate(){
+      return this.mois +' '+ this.annee;
+    }
+  }
+
+  class Dictionnaire extends Documents{
+    constructor(numEnreg, titre, langue){
+    super(numEnreg, titre);
+    this.langue = langue;
+    }
+    AfficherLangue(){
+      return this.langue
+    }
+  }
+
+  let marius = new Livre(1,'Marius','Marcel Pagnol', 192);
+  let science_et_vie = new Revu(2,'Science et vie', 'avril', 2021);
+  let larousse = new Dictionnaire(3,'Le Larousse', 'Français');
+
+  display(science_et_vie.AfficherDate());
+  display(science_et_vie.AfficherTitre());
+  
+})();
+*/
+/*
+(function(){
+  function fact(num) {
+
+  if (num === 0)
+  {
+     return 1;
+  }
+  return num * fact(num-1);
+}
+})();*/
+
+(function(){
+  function reshape(num,str){
+      var regex=  new RegExp(".{" + num +"}","g");
+      return str.replace(regex, "$&-");
+  }
+
+  display(reshape(3, 'herh erherher'));
 })();
